@@ -1,0 +1,7 @@
+{
+  "name": "Weather api",
+  "description": "A barebones Node.js app using Express",
+  "repository": "https://github.com/nguyenxuanhung96/demo-api-weather/tree/master/server",
+  "logo": "http://icons.iconarchive.com/icons/papirus-team/papirus-apps/128/weather-icon.png",
+  "keywords": ["node", "express", "static"]
+}
