@@ -13,12 +13,6 @@ function getMondayOfCurrentWeek()
     var day = d.getDay();
     return new Date(d.getFullYear(), d.getMonth(), d.getDate() + (day == 0?-6:1)-day, d.getHours(), d.getMinutes(), d.getSeconds() );
 }
-function getSundayOfCurrentWeek()
-{
-    var d = new Date();
-    var day = d.getDay();
-    return new Date(d.getFullYear(), d.getMonth(), d.getDate() + (day == 0?0:7)-day, d.getHours(), d.getMinutes(), d.getSeconds() );
-}
 let defaultWeather = function(){
   let d = new Date();
   return {
