@@ -10,7 +10,7 @@ module.exports = function(app){
   .get(function (req, res){
     res.send(weather.getWeatherToday());
   });
-  app.route('/get-weathers-week')
+  app.route('/get-weather-week')
   .get(function (req, res){
     res.send(weather.getWeatherWeek());
   });

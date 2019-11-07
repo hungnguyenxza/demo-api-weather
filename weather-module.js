@@ -1,8 +1,8 @@
 
 let conditionType = Object.freeze({
-  'bad': 'Bad',
-  'normal': 'Normal',
-  'nice': 'Nice'
+  '1': 'Bad',
+  '2': 'Normal',
+  '3': 'Nice'
 });
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -11,29 +11,30 @@ function getMondayOfCurrentWeek()
 {
     var d = new Date();
     var day = d.getDay();
-    return new Date(d.getFullYear(), d.getMonth(), d.getDate() + (day == 0?-6:1)-day );
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate() + (day == 0?-6:1)-day, d.getHours(), d.getMinutes(), d.getSeconds() );
 }
 function getSundayOfCurrentWeek()
 {
     var d = new Date();
     var day = d.getDay();
-    return new Date(d.getFullYear(), d.getMonth(), d.getDate() + (day == 0?0:7)-day );
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate() + (day == 0?0:7)-day, d.getHours(), d.getMinutes(), d.getSeconds() );
 }
 let defaultWeather = function(){
+  let d = new Date();
   return {
-    'date': (new Date()).toDateString(),
-    'time': (new Date()).toTimeString(),
+    'date': d.toString(),
     'temperature': getRndInteger(22, 30),
     'unit': 'C',
-    'sunset': (new Date(2019, 10, 6, 17, 36, 26)).toTimeString(),
-    'sunrise': (new Date(2019, 10, 6, 6, 8, 38)).toTimeString(),
-    'condition': conditionType.normal,
+    'sunset': (new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17, getRndInteger(20, 40), getRndInteger(0, 59))).toTimeString(),
+    'sunrise': (new Date(d.getFullYear(), d.getMonth(), d.getDate(), 6, getRndInteger(20, 40), getRndInteger(0, 59))).toTimeString(),
+    'condition': conditionType[getRndInteger(1, 3)],
     'humidity': getRndInteger(60, 99)
   }
 }
 
 exports.getWeatherToday = function(){
   let weather = defaultWeather();
+  
   return weather;
 }
 
@@ -46,7 +47,7 @@ exports.getWeatherWeek = function(){
     date = firstDay.getDate();
     firstDay.setDate(date + 1);
     let weather = defaultWeather();
-    weather.date = firstDay.toDateString();
+    weather.date = firstDay.toString();
     result.push(weather);
   }
   return result;
