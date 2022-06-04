@@ -14,4 +14,8 @@ module.exports = function(app){
   .get(function (req, res){
     res.send(weather.getWeatherWeek());
   });
+  app.route('/checking-autobot-update')
+  .get(function (req, res){
+    res.send(weather.checkingUpdate());
+  });
 }
