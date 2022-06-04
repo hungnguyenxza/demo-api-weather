@@ -32,6 +32,10 @@ exports.getWeatherToday = function(){
   return weather;
 }
 
+exports.checkingUpdate = function(){
+  return "version: 10.0.0"; 
+}
+
 exports.getWeatherWeek = function(){
   let firstDay = getMondayOfCurrentWeek();
   let date = firstDay.getDate();
