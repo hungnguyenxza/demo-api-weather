@@ -33,7 +33,7 @@ exports.getWeatherToday = function(){
 }
 
 exports.checkingUpdate = function(){
-  return "version: 10.0.0"; 
+  return "version: 3.4.10"; 
 }
 
 exports.getWeatherWeek = function(){
